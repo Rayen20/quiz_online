@@ -1,0 +1,76 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Creer Questions</title>  
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>  
+<body>  
+
+	<center><h1>Ajouter un nouveau question</h1></center>
+
+    <br>
+    <br>
+<form method="POST" class="post-form"  >  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+ <div class="form-group row">  
+    <label for="inputEmail3" class="col-sm-2 col-form-label"> Id de l'examen <b> {{ex.titre}} </b></label>
+
+    <div class="col-sm-10">  
+      <input type="text" name="examen" id="examen" value="{{ex.id}}">
+    </div>   
+     
+  
+  </div>
+ <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Question</label>
+    <div class="col-sm-10">
+       {{ form.question }} 
+    </div>
+  </div>
+      
+   
+    
+  <div class="form-group row">  
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Option 1</label>
+    <div class="col-sm-10"> 
+      {{ form.option1 }}  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Option 2</label>
+    <div class="col-sm-10">  
+      {{ form.option2 }}  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Option 3</label>
+    <div class="col-sm-10">  
+      {{ form.option3 }}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+   <label for="inputEmail3" class="col-sm-2 col-form-label">Option 4</label>
+    <div class="col-sm-10"> 
+      {{ form.option4 }}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Correction</label>
+    <div class="col-sm-10">  
+      {{ form.corrans }}  
+    </div>  
+  </div> 
+  
+    <div class="form-group row">  
+    <label for="inputEmail3" class="col-sm-2 col-form-label"> </label>
+    <div class="col-sm-10">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  

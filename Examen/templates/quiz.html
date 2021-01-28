@@ -1,0 +1,98 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Quiz</title>  
+    <script >
+     
+    
+        function getansewers(){
+            document.getElementById("UserAnswers").innerHTML ="";
+             
+
+            var e=document.getElementsByTagName('input');
+            for(i=0 ;i<= e.length ;i++){
+               
+                if(e[i].type =="radio"){
+                    if(e[i].checked){
+                        document.getElementById("UserAnswers").innerHTML +="Q " +e[i].name+ "la réponse selectionnée est :"+e[i].value+ "<br/>";
+                       
+
+                    document.getElementById("corans").style.display ="block";
+
+                    }
+                    
+                    
+                }
+            }
+        }
+    </script>
+     {% load static %}  
+   
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+</head>  
+<body>
+
+ <center>
+    <h1> Examen en Ligne</h1>
+ <h2> Quiz</h1>
+    </center>  
+ <div class="container">
+
+{% for ex in question %}   
+
+<table >  
+     
+    <tr>  
+        <td> Q :{{ ex.id }} ) {{ex.question }} ?</td>
+    </tr>  
+    </thead>  
+   
+
+    <tr>  
+        <td>
+           
+             <input type="radio" name="{{ex.id}}" id="option1" value="{{ex.option1}}"><label>{{ex.option1}} </label>
+
+        </td>  
+        
+    </tr>  
+     <tr> 
+            <td>
+ <input type="radio" name="{{ex.id}}" id="option2" value="{{ex.option2}}"><label>{{ex.option2}} </label>
+        </td>  
+        
+        
+    </tr>  
+     <tr>  
+        <td><input class="rb" type="radio" name="{{ex.id}}" id="option3" value="{{ex.option3}}"> <label>{{ex.option3}} </label></td>  
+        
+    </tr>  
+     <tr>  
+        <td><input class="rb" type="radio" name="{{ex.id}}" id="option4" value="{{ex.option4}}"> <label>{{ex.option4}} </label></td>  
+        
+    </tr>  
+ 
+    
+</table>  
+
+{% endfor %} 
+<br>  
+<input type="submit" class="btn btn-success" id="but" value="Verifier" onclick="getansewers();">
+<br>
+<br>
+<b id="UserAnswers"> </b>
+<br> 
+   
+<td>
+<b> Les réponses correctes</b>
+    <label id="corans" style="display: none;color: green"> 
+    {% for ex in question %}
+Q{{ex.id}} : {{ex.corrans}} <br>
+{% endfor %}</label></td> 
+ 
+ </div>
+
+</body>  
+</html>  

@@ -1,0 +1,50 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee Records</title>  
+     {% load static %}  
+   
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>  
+<body>  
+
+    <center><h1>Consulter Vos Examens</h1></center>
+    <center><h2>faire des  quiz en ligne</h2></center>
+    <center><a href="/create"><button type="submit" class="btn btn-success">Ajouter un Examen</button> </a></center>
+
+    <br>
+<table class="table">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th scope="col">Titre Examen</th>  
+        <th scope="col">    Etat </th>  
+          
+        <th scope="col">Ajouter des questions</th> 
+         <th scope="col">Quiz</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for e in examen %}  
+    <tr>  
+        <td>{{ e.titre }}</td>  
+        <td>{{ e.etat }}</td>  
+          
+        <td>  
+            <a href="/createq/{{ e.id }}"><span class="glyphicon glyphicon-pencil" >Ajouter</span></a>  
+              
+        </td>
+         <td>  
+            <a href="/quiz/{{ e.id }}"><span class="glyphicon glyphicon-pencil" >click</span></a>  
+              
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+  
+</body>  
+</html>  
